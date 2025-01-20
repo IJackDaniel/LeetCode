@@ -14,7 +14,6 @@ name_raw = input("Введите название задачи: ")
 name = f"{num}. {name_raw}"
 file = open(f"{name}.py", "w")
 file.write(f"# {name}" + "\n")
-file.write(f"# Date of problem solution: {day}.{month}.{year}" + "\n")
-file.write("# " + "\n")
-file.write("# " + "\n")
+file.write(f"# Date of problem solution: {day}.{month}.{year}" + "\n\n")
+
 file.close()
