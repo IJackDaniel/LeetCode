@@ -17,30 +17,24 @@ public class Isomorphic_Strings {
 
     static boolean isIsomorphic(String s, String t)
     {
-        HashMap<Character, Character> map1 = new HashMap<>();
-        HashMap<Character, Character> map2 = new HashMap<>();
+        if (s.length() != t.length()) {return false;}
+
+        int[] mapS = new int[256];
+        int[] mapT = new int[256];
 
         for (int i = 0; i < s.length(); i++)
         {
-            char currChar1 = s.charAt(i);
-            if (map1.containsKey(currChar1))
+            char curCharS = s.charAt(i);
+            char curCharT = t.charAt(i);
+
+            if (mapS[curCharS] != mapT[curCharT])
             {
-                if (map1.get(currChar1) != t.charAt(i)) {return false;}
-            } else
-            {
-                map1.put(currChar1, t.charAt(i));
+                return false;
             }
 
-            char currChar2 = t.charAt(i);
-            if (map2.containsKey(currChar2))
-            {
-                if (map2.get(currChar2) != s.charAt(i)) {return false;}
-            } else
-            {
-                map2.put(currChar2, s.charAt(i));
-            }
+            mapS[curCharS] = i + 1;
+            mapT[curCharT] = i + 1;
         }
-
         return true;
     }
 }
