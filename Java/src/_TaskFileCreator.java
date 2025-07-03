@@ -7,6 +7,32 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class _TaskFileCreator {
+    private static String convertToCamelCase(String input) {
+        if (input == null || input.isEmpty()) {
+            return input;
+        }
+
+        StringBuilder result = new StringBuilder();
+        boolean nextUpper = false;
+
+        for (int i = 0; i < input.length(); i++) {
+            char currentChar = input.charAt(i);
+
+            if (currentChar == ' ') {
+                nextUpper = true;
+            } else {
+                if (nextUpper) {
+                    result.append(Character.toUpperCase(currentChar));
+                    nextUpper = false;
+                } else {
+                    result.append(i == 0 ? Character.toUpperCase(currentChar) : currentChar);
+                }
+            }
+        }
+
+        return result.toString();
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -25,7 +51,7 @@ public class _TaskFileCreator {
         // Validate class name (заменяем пробелы на _ и удаляем апострофы перед валидацией)
         String className;
         try {
-            className = validateAndCreateClassName(classNameInput.replace(' ', '_').replace("'", ""));
+            className = validateAndCreateClassName(convertToCamelCase(classNameInput.replace("'", "")));
         } catch (IllegalArgumentException e) {
             System.err.println("Error: " + e.getMessage());
             return;
