@@ -5,7 +5,7 @@
 
 import java.util.HashMap;
 
-public class Longest_Substring_Without_Repeating_Characters {
+public class LongestSubstringWithoutRepeatingCharacters {
     public static void main(String[] args) {
         var result = lengthOfLongestSubstring("abcabcbb");
         System.out.println(result);

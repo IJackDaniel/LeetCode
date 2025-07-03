@@ -3,7 +3,7 @@
 // Condition: Task has been solved
 // Date of creation: 2025-05-28
 
-public class Roman_to_Integer {
+public class RomanToInteger {
     public static void main(String[] args) {
         var result = romanToInt("III");
         System.out.println(result);

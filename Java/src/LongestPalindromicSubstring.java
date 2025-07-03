@@ -1,9 +1,9 @@
 // Task name: 5. Longest Palindromic Substring
 // Difficulty: Medium
-// Condition: Task has not been solved
+// Condition: Task has been solved
 // Date of creation: 2025-05-31
 
-public class Longest_Palindromic_Substring
+public class LongestPalindromicSubstring
 {
     public static void main(String[] args)
     {

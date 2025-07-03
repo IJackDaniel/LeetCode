@@ -3,9 +3,7 @@
 // Condition: Task has been solved
 // Date of creation: 2025-06-08
 
-import java.util.HashMap;
-
-public class Isomorphic_Strings {
+public class IsomorphicStrings {
     public static void main(String[] args) {
         var result = isIsomorphic("egg", "add");
         System.out.println(result);
