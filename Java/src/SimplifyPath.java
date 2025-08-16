@@ -22,7 +22,6 @@ public class SimplifyPath {
     }
 
     static String simplifyPath(String path) {
-        while (path.contains("//")) path = path.replaceAll("//", "/");
         String[] arr = path.split("/");
         Stack<String> stack = new Stack<>();
 
