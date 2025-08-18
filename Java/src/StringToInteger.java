@@ -19,43 +19,44 @@ public class StringToInteger {
         System.out.println(result); // -2147483648
         result = myAtoi("9223372036854775808");
         System.out.println(result); // 2147483647
+        result = myAtoi("");
+        System.out.println(result);
 
     }
 
     static int myAtoi(String s) {
-        boolean isReading = false, isNegative = false;
-        int result = 0;
-        long curr = 0;
+        if (s.isEmpty()) return 0;
 
-        for (int i = 0; i < s.length(); i++) {
-            char symb = s.charAt(i);
-            if (symb == ' ') {
-                if (isReading) break;
-                continue;
-            } else if (symb == '+') {
-                if (isReading) break;
-                isReading = true;
-            } else if (symb == '-') {
-                if (isReading) break;
-                isNegative = true;
-                isReading = true;
-            } else if (Character.isDigit(symb)){
-                curr = (Math.abs((long)result)) * 10 + Integer.parseInt(String.valueOf(symb));
-                curr = isNegative? -curr : curr;
-                if (curr > 2147483647) {
-                    result = 2147483647;
-                    break;
-                } else if (curr < -2147483648) {
-                    result = -2147483648;
-                    break;
-                } else {
-                    result = (int)(curr);
-                }
-                isReading = true;
-            } else {
-                break;
-            }
+        // Delete excess spaces
+        int i = 0;
+        int n = s.length();
+        while (i < n && s.charAt(i) == ' ') {
+            i++;
         }
-        return result;
+
+        if (i == n) return 0;
+
+        // Determine sign
+        int sign = 1;
+        if (s.charAt(i) == '-') {
+            sign = -1;
+            i++;
+        } else if (s.charAt(i) == '+') {
+            i++;
+        }
+
+        // Definition of value
+        final int MAX = Integer.MAX_VALUE;
+        final int MIN = Integer.MIN_VALUE;
+        long currentValue = 0;
+        while (i < n && Character.isDigit(s.charAt(i))) {
+            int digit = s.charAt(i) - '0';
+            currentValue = currentValue * 10 + digit;
+            if (currentValue * sign > MAX) return MAX;
+            if (currentValue * sign < MIN) return MIN;
+            i++;
+        }
+
+        return (int)(currentValue * sign);
     }
 }
