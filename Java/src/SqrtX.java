@@ -1,6 +1,6 @@
 // Task name: 69. Sqrt x
 // Difficulty: Easy
-// Condition: Task has not been solved
+// Condition: Task has been solved
 // Date of creation: 2025-08-22
 
 public class SqrtX {
