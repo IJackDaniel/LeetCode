@@ -11,15 +11,17 @@ public class SqrtX {
         System.out.println(result);
         result = mySqrt(2147395599);
         System.out.println(result);
-//        result = mySqrt();
-//        System.out.println(result);
+        result = mySqrt(0);
+        System.out.println(result);
 //        result = mySqrt();
 //        System.out.println(result);
 
     }
 
     static int mySqrt(int x) {
-        int left = 0, right = (int) Math.pow(2, 16);
+        if (x < 2) return x;
+
+        int left = 0, right = x / 2 + 1;
         while (right - left > 1) {
             int mid = (right + left) / 2;
             long square = (long) mid * mid;
