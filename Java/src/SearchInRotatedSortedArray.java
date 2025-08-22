@@ -1,6 +1,6 @@
 // Task name: 33. Search in Rotated Sorted Array
 // Difficulty: Medium
-// Condition: Task has not been solved
+// Condition: Task has been solved
 // Date of creation: 2025-08-21
 
 public class SearchInRotatedSortedArray {
