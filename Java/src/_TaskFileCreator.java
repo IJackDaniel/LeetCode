@@ -102,7 +102,7 @@ public class _TaskFileCreator {
                 + "\n"
                 + "public class " + className + " {\n"
                 + "    public static void main(String[] args) {\n"
-                + "        var result = \" + functionName + \"();\n"
+                + "        var result = " + functionName + "();\n"
                 + "        System.out.println(result);\n"
                 + "        result = " + functionName + "();\n"
                 + "        System.out.println(result);\n"
