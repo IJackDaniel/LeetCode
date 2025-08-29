@@ -55,7 +55,6 @@ public class SearchA2DMatrix {
                 left = mid + 1;
             }
         }
-        if (left < matrix[mid_row].length && matrix[mid_row][left] == target) return true;
         return false;
     }
 }
